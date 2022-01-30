@@ -12,8 +12,8 @@ type Usuarios struct {
 	// Aqui ficarão os métodos que farão a integração com as tabelas de BD
 }
 
-// NovoRepositorioDeusuarios: cria um repositório de usuários
-func NovoRepositorioDeusuarios(db *sql.DB) *Usuarios {
+// NovoRepositorioDeUsuarios: cria um repositório de usuários
+func NovoRepositorioDeUsuarios(db *sql.DB) *Usuarios {
 	return &Usuarios{db}
 }
 
@@ -105,4 +105,21 @@ func (repositorio Usuarios) BuscarPorID(ID uint64) (modelos.Usuario, error) {
 	}
 
 	return usuario, nil
+}
+
+// Atualizar: altera as informações de um usuário no BD
+func (repositorio Usuarios) Atualizar(ID uint64, usuario modelos.Usuario) error {
+	statement, erro := repositorio.db.Prepare(
+		"UPDATE usuarios SET nome = ?, nick = ?, email = ? WHERE id = ?",
+	)
+	if erro != nil {
+		return erro
+	}
+	defer statement.Close()
+
+	if _, erro = statement.Exec(usuario.Nome, usuario.Nick, usuario.Email, ID); erro != nil {
+		return erro
+	}
+
+	return nil
 }
