@@ -15,6 +15,9 @@ var (
 
 	// Porta: Porta TCP que atenderá a API
 	Porta = 0
+
+	// SecretKey: Chave para assinar o token
+	SecretKey []byte
 )
 
 // Carregar: inicializa as variáveis de ambiente
@@ -36,5 +39,7 @@ func Carregar() {
 		os.Getenv("DB_SENHA"),
 		os.Getenv("DB_NOME"),
 	)
+
+	SecretKey = []byte(os.Getenv("SECRET_KEY"))
 
 }
