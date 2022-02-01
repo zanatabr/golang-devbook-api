@@ -1,12 +1,14 @@
 package controllers
 
 import (
+	"api/src/autenticacao"
 	"api/src/banco"
 	"api/src/modelos"
 	"api/src/repositorios"
 	"api/src/respostas"
 	"api/src/seguranca"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -44,8 +46,10 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Temporariamente: Será necessário gerar um token a ser utilizado
-	// em todas as rotas que necessitam de autenticação
-	w.Write([]byte("Você está logado! Parabéns!"))
+	token, _ := autenticacao.CriarToken(usuarioSalvoNoBanco.ID)
+	fmt.Println(token)
+
+	// Temporariamente
+	w.Write([]byte(token))
 
 }
