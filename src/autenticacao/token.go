@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"strconv"
 	"strings"
 	"time"
 
@@ -50,6 +51,28 @@ func ValidarToken(r *http.Request) error {
 	return errors.New("token inválido")
 }
 
+func ExtrairUsuarioID(r *http.Request) (uint64, error) {
+	tokenString := extrairToken(r)
+	token, erro := jwt.Parse(tokenString, retornarChaveDeVerificacao)
+	if erro != nil {
+		return 0, erro
+	}
+
+	if permissoes, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
+		// permissoes["usuarioId"] é do tipo "interface". Espera-se um string
+		// Precisamos primeiro converter para string, para depois uint
+		// Mas... o JWT armazena o uint64 como um float. Então precisaremos
+		// converter o float para string, para depois converter para uint
+		usuarioID, erro := strconv.ParseUint(
+			fmt.Sprintf("%.0f", permissoes["usuarioId"]), 10, 64)
+		if erro != nil {
+			return 0, erro
+		}
+		return usuarioID, nil
+	}
+	return 0, errors.New("token inválido")
+}
+
 // Essa função apenas "extrai" o token do request
 // Não faz a validação
 func extrairToken(r *http.Request) string {
@@ -71,7 +94,7 @@ func extrairToken(r *http.Request) string {
 func retornarChaveDeVerificacao(token *jwt.Token) (interface{}, error) {
 	// O método que está sendo usado é de uma família específica?
 	if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-		return nil, fmt.Errorf("Método de assinatura inesperado! %v", token.Header["alg"])
+		return nil, fmt.Errorf("método de assinatura inesperado %v", token.Header["alg"])
 	}
 
 	return config.SecretKey, nil
