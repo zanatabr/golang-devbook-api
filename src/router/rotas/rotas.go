@@ -21,7 +21,8 @@ type Rota struct {
 //             c) Devolve um Router preparado
 func Configurar(r *mux.Router) *mux.Router {
 	rotas := rotasUsuarios
-	rotas = append(rotas, rotaLogin) // faz o append da rota de login
+	rotas = append(rotas, rotaLogin)           // faz o append da rota de login
+	rotas = append(rotas, rotasPublicacoes...) // faz o append das rotas de publicações
 
 	for _, rota := range rotas {
 		if rota.RequerAutenticacao {
