@@ -17,7 +17,7 @@ func CriarToken(usuarioID uint64) (string, error) {
 	permissoes := jwt.MapClaims{} // Map que conterá as permissões no Token
 	permissoes["authorized"] = true
 	permissoes["exp"] = time.Now().Add(time.Hour * 6).Unix() // expiração 6h
-	permissoes["usuarioID"] = usuarioID
+	permissoes["usuarioId"] = usuarioID
 
 	// Assinatura digital do token com uma chave secreta (preparação)
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, permissoes)
@@ -29,6 +29,7 @@ func CriarToken(usuarioID uint64) (string, error) {
 
 // ValidarToken: verifica se o token passado na requisição é válido
 func ValidarToken(r *http.Request) error {
+
 	tokenString := extrairToken(r)
 	// A função jwt.Parse verifica todos os segmentos do token (header,
 	// claims/permissões, assinatura)
@@ -65,6 +66,7 @@ func ExtrairUsuarioID(r *http.Request) (uint64, error) {
 		// converter o float para string, para depois converter para uint
 		usuarioID, erro := strconv.ParseUint(
 			fmt.Sprintf("%.0f", permissoes["usuarioId"]), 10, 64)
+
 		if erro != nil {
 			return 0, erro
 		}
