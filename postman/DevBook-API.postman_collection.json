@@ -1,0 +1,601 @@
+{
+	"info": {
+		"_postman_id": "bc88b61a-4ba4-47e7-aab8-a78f26ab2741",
+		"name": "DevBook-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Buscar Usuarios",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDM5MTUyMDIsInVzdWFyaW9JRCI6N30.o3vSsg7r-8DP3ntI1MbZV8Blxqbo1wSyEBodga8WA4g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Seguidores",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDM5MzU4NDEsInVzdWFyaW9JZCI6OH0.WWvAbpZX9dsBKhAVbHgbO-OQH4ggrtHOxBuj9NQrVGs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/usuarios/2/seguidores",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"2",
+						"seguidores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Seguindo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDM5MzU4NDEsInVzdWFyaW9JZCI6OH0.WWvAbpZX9dsBKhAVbHgbO-OQH4ggrtHOxBuj9NQrVGs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/usuarios/8/seguindo",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"8",
+						"seguindo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inserir Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Usuario Novo\",\n    \"nick\": \"usunovo8\",\n    \"email\": \"usunovo8@gmail.com\",\n    \"senha\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Publicacao",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDM5NjA2MjYsInVzdWFyaW9JZCI6OH0.oYTxVERhG_7wyB9aNsLfe2kZKf7GRcUCZ0Rweid3Lhg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Quarta Publicação\",\n    \"conteudo\": \"Texto da quarta publicação\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/publicacoes",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"publicacoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Curtir Publicacao",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDQyMDg2MTQsInVzdWFyaW9JZCI6MX0.bZ5c-p5nzn2X9MPQMUdjMLtyAKOLQhFufJ5NSPD-BSg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Quarta Publicação\",\n    \"conteudo\": \"Texto da quarta publicação\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/publicacoes/3/curtir",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"publicacoes",
+						"3",
+						"curtir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Descurtir Publicacao",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDQyMDg2MTQsInVzdWFyaW9JZCI6MX0.bZ5c-p5nzn2X9MPQMUdjMLtyAKOLQhFufJ5NSPD-BSg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Quarta Publicação\",\n    \"conteudo\": \"Texto da quarta publicação\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/publicacoes/3/descurtir",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"publicacoes",
+						"3",
+						"descurtir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Publicacao",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDQxODcyNTIsInVzdWFyaW9JZCI6MX0.DXSpLmPdBUw9Q6HSsXDWXa4rTbitJSYSMUMqz6yRF6o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Juninho\",\n    \"nick\": \"juninho\",\n    \"email\": \"juninho@gmail.com\",\n    \"senha\": \"432321\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/publicacoes/3",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"publicacoes",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Publicacao",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDQxODcyNTIsInVzdWFyaW9JZCI6MX0.DXSpLmPdBUw9Q6HSsXDWXa4rTbitJSYSMUMqz6yRF6o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Alterado - Publicação do Usuário 1\",\n    \"conteudo\": \"Alterado - Essa é a publicação do usuário 1. Oba!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/publicacoes/3",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"publicacoes",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Publicacoes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDQxODM3NDMsInVzdWFyaW9JZCI6MX0.YmfJHjLdiVN_bXYpwa4PJwmXoDDaLHndXJG8XAfIFPM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Juninho\",\n    \"nick\": \"juninho\",\n    \"email\": \"juninho@gmail.com\",\n    \"senha\": \"432321\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/publicacoes",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"publicacoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Publicacoes por Usuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDQxODIwMzAsInVzdWFyaW9JZCI6OH0.DRv7XpwtxLEfL4krw0lFXZNfqQsE_J1z-ynAV3rFG_U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Juninho\",\n    \"nick\": \"juninho\",\n    \"email\": \"juninho@gmail.com\",\n    \"senha\": \"432321\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/usuarios/3/publicacoes",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"3",
+						"publicacoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AtualizarSenha",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDM5MzU4NDEsInVzdWFyaW9JZCI6OH0.WWvAbpZX9dsBKhAVbHgbO-OQH4ggrtHOxBuj9NQrVGs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"atual\": \"12345678\",\n    \"nova\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/usuarios/1/atualizar-senha",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"1",
+						"atualizar-senha"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Seguir Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDM5MjMzMjYsInVzdWFyaW9JZCI6OH0.XBuHpm57F47s8saCne0mY7NfbqeWrc4NQ4zWfiVxflU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Juninho\",\n    \"nick\": \"juninho\",\n    \"email\": \"juninho@gmail.com\",\n    \"senha\": \"432321\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/usuarios/3/seguir",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"3",
+						"seguir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Parar de Seguir Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDM5MzIyMzEsInVzdWFyaW9JZCI6OH0.V7RSKQYs3Gq56QvqDLsT-HjlBmjudk-jodo-Zsgv6PI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Juninho\",\n    \"nick\": \"juninho\",\n    \"email\": \"juninho@gmail.com\",\n    \"senha\": \"432321\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/usuarios/8/parar-de-seguir",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"8",
+						"parar-de-seguir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"usuario1@summdfdx.com\",\n    \"senha\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDM5MjI5MTIsInVzdWFyaW9JZCI6OH0.sGsRFIRLcIgbTUnNgHAreeohBAooOutvq0Ob8oi5woQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"João Roberto\",\n    \"nick\": \"usunovo8\",\n    \"email\": \"usunovo8@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/usuarios/8",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/usuarios/3",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
